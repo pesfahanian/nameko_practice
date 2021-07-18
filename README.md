@@ -8,6 +8,8 @@ This application is developed using:
 -   [nameko](https://github.com/onefinestay/nameko)
 -   [SQLAlchemy](https://www.sqlalchemy.org/)
 
+Application structure loosely based on [this](https://github.com/nameko/nameko-examples) example.
+
 ## Usage
 Make sure you have a `RabbitMQ` server running locally.
 
