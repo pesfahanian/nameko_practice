@@ -11,7 +11,7 @@ app = FastAPI(title=TITLE, version=f'{VERSION}.0.0')
 
 
 @app.on_event('startup')
-def startup():
+def startup() -> None:
     healthcheck()
 
 

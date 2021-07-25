@@ -9,7 +9,7 @@ Base = declarative_base()
 
 
 class SQLite:
-    def __init__(self):
+    def __init__(self) -> None:
         database_url = f'sqlite:///{DB_PATH}'
         self.engine = create_engine(database_url)
         Base.metadata.create_all(self.engine)

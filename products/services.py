@@ -23,5 +23,4 @@ def _add_product(product_details: dict) -> None:
                           name=product_details['name'],
                           in_stock=True)
     session.add(new_product)
-    session.commit()
-    return
+    return session.commit()
