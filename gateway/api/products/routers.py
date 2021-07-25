@@ -46,10 +46,10 @@ def get_product(product_id: int) -> JSONResponse:
 
 
 @router.post('/', status_code=200)
-def create_product(product: Product) -> JSONResponse:
+def add_product(product: Product) -> JSONResponse:
     try:
         with ClusterRpcProxy(CLUSTER_RPC) as rpc:
-            result = rpc.products.create_product(product.json())
+            result = rpc.products.add_product(product.json())
     except Exception as e:
         message = f'Failed to create product. Reason: {str(e)}.'
         raise HTTPException(status_code=400, detail=message)
