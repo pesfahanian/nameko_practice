@@ -3,13 +3,17 @@ import json
 from nameko.events import EventDispatcher
 from nameko.rpc import rpc
 
-from services import _get_all_products, _get_product, _create_product
+from services import _get_all_products, _get_product, _add_product
 
 
 class ProductsService:
     name = 'products'
 
     event_dispatcher = EventDispatcher()
+
+    @rpc
+    def healthcheck(self):
+        return {'status': 'ok'}
 
     @rpc
     def get_all_products(self):
@@ -20,7 +24,7 @@ class ProductsService:
         return _get_product(product_id)
 
     @rpc
-    def create_product(self, product_details):
+    def add_product(self, product_details):
         product = json.loads(product_details)
-        _create_product(product)
-        return {'detail': 'success'}
+        _add_product(product)
+        return {'detail': 'Success'}

@@ -17,7 +17,7 @@ def _get_product(product_id: int) -> dict:
     return jsonable_encoder(product)
 
 
-def _create_product(product_details: dict) -> None:
+def _add_product(product_details: dict) -> None:
     session = SQLite().session
     new_product = Product(id=product_details['id'],
                           name=product_details['name'],

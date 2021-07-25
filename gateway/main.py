@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from api.health import routers as health_routers
 from api.health.calls import healthcheck
+
 from api.products import routers as products_routers
 
 from settings import TITLE, VERSION

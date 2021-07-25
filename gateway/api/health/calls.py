@@ -14,8 +14,7 @@ def healthcheck() -> None:
         raise Exception(
             'Timeout in communicating with the `Products` service')
     except Exception as e:
-        message = ('Failure in communicating with the `Products` service. '
-                   f'Reason: {str(e)}')
+        message = f'`Products` service healthcheck failed due to `{str(e)}`'
         raise Exception(message)
 
 
@@ -23,4 +22,7 @@ def healthcheck() -> None:
 def products_healthcheck() -> None:
     with ClusterRpcProxy(CLUSTER_RPC) as rpc:
         result = rpc.products.healthcheck()
-    return result
+    if (result['status'] == 'ok'):
+        return result
+    else:
+        raise Exception(result['status'])
