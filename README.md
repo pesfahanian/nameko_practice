@@ -41,3 +41,6 @@ Make sure you have a `RabbitMQ` server running locally.
     ```shell
     $ uvicorn main:app --reload
     ```
+
+
+This is a tes text.
